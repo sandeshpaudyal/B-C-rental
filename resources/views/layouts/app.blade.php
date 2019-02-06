@@ -55,7 +55,7 @@
                     <ul class="navbar-nav ml-auto">
 
                         <li class="nav-item">
-                                <a class="nav-link ser-link" href="#"><i class="fas fa-wrench"></i>&nbsp; Service Centers </a>
+                                <a class="nav-link ser-link" href="{{ route('service') }}"><i class="fas fa-wrench"></i>&nbsp; Service Centers </a>
                             </li>
                         <!-- Authentication Links -->
                         @guest

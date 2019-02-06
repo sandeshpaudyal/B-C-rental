@@ -79,4 +79,16 @@
        
     </div>
 </div>
+
+<br>
+<br>
+
+<div class="container-fluid foot">
+    <div class="text-center">
+        <a href="#" class="foota">About</a>
+        <a href="#" class="foota"> Contact</a>
+        <a href="#" class="foota">Help</a> <br>
+        Copyright 2019. All Rights Reserved
+    </div>
+</div>
 @endsection
