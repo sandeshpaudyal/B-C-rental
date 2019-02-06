@@ -25,6 +25,9 @@
      <!-- <link href="{{ asset('css/style.css') }}" rel="stylesheet"> -->
 
      <style>
+     body{
+        font-family:Poppins;
+     }
       .navbar
     {
         background-color: #871C13 !important;
@@ -52,7 +55,7 @@
                     <ul class="navbar-nav ml-auto">
 
                         <li class="nav-item">
-                                <a class="nav-link ser-link" href="#"><i class="fas fa-wrench"></i> Service Centers </a>
+                                <a class="nav-link ser-link" href="#"><i class="fas fa-wrench"></i>&nbsp; Service Centers </a>
                             </li>
                         <!-- Authentication Links -->
                         @guest

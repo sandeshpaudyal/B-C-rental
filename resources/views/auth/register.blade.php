@@ -2,13 +2,13 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class = "col-md-10 ml-auto mr-auto contentmain">
+        <div class = "col-md-12 ml-auto mr-auto contentmain">
             <div class ="row">
                 <div class = "col-md-6 imagecol">
-                    <img src="{{URL::asset('/image/car.png')}}">
+                    <img src="{{URL::asset('/image/ourcar.png')}}">
                 </div>
                 <div class = "col-md-6 start">
-                    <h3>REGISTER</h3>
+                    <h1>REGISTER</h1>
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
                         
@@ -53,20 +53,24 @@
                         </div>
                         
                         <div class="form-group">
-                            <button type="submit" class="btn btn-primary">
+                            <button type="submit" class="btn ourbutton">
                             {{ __('Register') }}
                             </button>
                         </div>
                         <p>
-                            Already a member? <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            Already a member? <button class="btn ourbutton" href="{{ route('login') }}">{{ __('Login') }}</button>
                         </p>
                     </form>
                     <br>
                     <div class = "form-group logins">
-                        <a href="#" class="btn btn-primary btn-rad btn-md " role="button" aria-pressed="true">Connect With Facebook</a>
+                        <button href="#" class="btn btn-primary ourbutton2" role="button" aria-pressed="true">
+                        <i class="fab fa-facebook-f"></i>&nbsp;
+                        Connect With Facebook</a>
                     </div>
                     <div class = "form-group logins">
-                        <a href="#" class="btn btn-danger  btn-rad btn-md " role="button" aria-pressed="true">Continue with Google</a>
+                        <a href="#" class="btn btn-danger ourbutton2" role="button" aria-pressed="true">
+                        <i class="fab fa-google"></i>&nbsp;
+                        Continue with Google</a>
                     </div>
                 </div>
                 
