@@ -26,8 +26,8 @@ class HomeController extends Controller
     {
         $cars = Cars::all();
         echo "hello";
-        dd($cars);
-        return view('home')->with('cars', $cars)->with('test', 'success');
+        // dd($cars);
+        return view('dashboard')->with('cars', $cars);
     }
 
    

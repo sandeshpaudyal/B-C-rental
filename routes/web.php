@@ -28,3 +28,5 @@ Route::get('/service', 'ServiceController@service')->name('service');
  Route::get('/cars', 'CarsController@index')->name('cars');
 
 Route::post('/cars/store/', 'CarsController@store')->name('cars.store');
+
+Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
