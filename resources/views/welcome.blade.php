@@ -1,5 +1,7 @@
 
 @extends('layouts.app')
+
+
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -58,9 +60,11 @@
                                     </tr>
                                 </table><br>
                                 <div class="text-center">
-                                    <button class="btn viewbtn">
+                                   
+                                       <a class="btn viewbtn" href="{{ route('/showmore') }}">
                                         VIEW MORE
-                                    </button>
+                                    </a>
+                                  
                                 </div>
                             </div>
                         </div>

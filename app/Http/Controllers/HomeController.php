@@ -25,8 +25,6 @@ class HomeController extends Controller
     public function index()
     {
         $cars = Cars::all();
-        echo "hello";
-        // dd($cars);
         return view('dashboard')->with('cars', $cars);
     }
 
