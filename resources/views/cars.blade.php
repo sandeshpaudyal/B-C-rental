@@ -10,7 +10,7 @@
   <div class="card-header">
     Add cars
   </div>
-  <div class="card-body">
+  <div class="card-body" style="background:#f5f5f5;">
     @if ($errors->any())
       <div class="alert alert-danger">
         <ul>
@@ -39,10 +39,13 @@
               <input type="text" class="form-control" name="color"/>
           </div>
            <div class="form-group">
-              <label for="quantity">price:</label>
+              <label for="quantity">Price:</label>
               <input type="text" class="form-control" name="price"/>
           </div>
-          <button type="submit" class="btn btn-primary">Add</button>
+          <button type="submit" class="btn btn-success">
+            <i class="fas fa-save"></i>&nbsp;
+            Save
+          </button>
       </form>
   </div>
 </div>
