@@ -7,6 +7,16 @@ use App\Cars;
 
 class CarsController extends Controller
 {
+    function upload(Request $request)
+    {
+        $this->validate($request, [
+            'select_file' => 
+            'required| image| mimes:jpeg,png,jpg|max:2048']);
+        $image =  $request->file('select_file');
+        $new_image = rand() . '.' . $image->getClientOriginalExtension();
+        $image->move(public_path("images"), $new_name);
+        return back()->with('success', 'image upload success')->with('path', $new_name);
+    }
    
 
 
@@ -38,7 +48,13 @@ class CarsController extends Controller
      */
     public function store(Request $request)
     {
-       
+        // $this->validate($request, [
+        //     'select_file' => 
+        //     'required| image| mimes:jpeg,png,jpg|max:2048']);
+        // $image =  $request->file('select_file');
+        // $new_image = rand() . '.' . $image->getClientOriginalExtension();
+        // $image->move(public_path("images"), $new_name);
+        
       $cars = new Cars([
         'brand' => $request->get('brand'),
         'model'=> $request->get('model'),
@@ -98,4 +114,5 @@ class CarsController extends Controller
 
      return redirect('/home')->with('success', 'Stock has been deleted Successfully');
     }
+
 }

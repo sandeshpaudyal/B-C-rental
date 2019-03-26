@@ -47,6 +47,11 @@
                 <label for="quantity">Price:</label>
                 <input type="text" class="form-control" style="width:450px;" placeholder="35,000,000"  name="price"/>
             </div><br>
+
+             <div class="form-group">
+                <label for="quantity">Image:</label>
+                <input type="file" name = "select_file" />
+            </div>
             <button type="submit" class="btn btn-success" style="border-radius:100px;padding:5px 15px;">
               <i class="fas fa-save"></i>&nbsp;
               Save

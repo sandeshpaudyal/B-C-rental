@@ -61,7 +61,7 @@
                                 </table><br>
                                 <div class="text-center">
                                    
-                                       <a class="btn viewbtn" href="">
+                                       <a class="btn viewbtn" href="{{ route('showmore') }}">
                                         VIEW MORE
                                     </a>
                                   

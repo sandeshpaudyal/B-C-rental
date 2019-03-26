@@ -53,22 +53,9 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item">
-
-                                <a class="nav-link ser-link" href="{{ route('service') }}">Post an article</a>
-                            </li>
-                            
-                            <li class="nav-item">
-                                <a class="nav-link ser-link" href="{{ route('cars') }}"><i class="fas fa-wrench"></i>&nbsp; add cars  </a>
-                            </li>
-
-                            
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link ser-link" href="{{ route('cars') }}" style="padding:5px 15px;"><i class="fas fa-car"></i>&nbsp; 
-                                Add cars  
-                            </a>
-                        </li>
+                        
+                          
+                       
 
                         <!-- Authentication Links -->
                         @guest
