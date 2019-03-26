@@ -30,3 +30,9 @@ Route::get('/service', 'ServiceController@service')->name('service');
 Route::post('/cars/store/', 'CarsController@store')->name('cars.store');
 
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
+
+// for image upload
+
+Route::get('image-upload', 'ImageUploadController@imageUpload')->name('image.upload');
+
+Route::post('image-upload', 'ImageUploadController@imageUploadPost')->name('image.upload.post');
