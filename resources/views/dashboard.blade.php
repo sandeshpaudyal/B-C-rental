@@ -188,19 +188,25 @@
                 <li class="nav-item">
                     <a class="nav-link active" id="profile-tab" data-toggle="tab" href="#bike" role="tab" aria-controls="profile" aria-selected="false">
                         <i class="fas fa-motorcycle"></i>&nbsp;
-                        Add Bike
+                        All Bikes
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" id="profile-tab" data-toggle="tab" href="#car" role="tab" aria-controls="profile" aria-selected="false">
                         <i class="fas fa-car"></i>&nbsp;
-                        Add Car
+                        All Cars
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link " id="home-tab" data-toggle="tab" href="#article" role="tab" aria-controls="home" aria-selected="true">
                         <i class="fas fa-newspaper"></i>&nbsp;
-                        Post Article
+                        All Article
+                    </a>
+                </li>
+                 <li class="nav-item">
+                    <a class="nav-link " id="user-tab" data-toggle="tab" href="#user" role="tab" aria-controls="user" aria-selected="true">
+                        <i class="fas fa-newspaper"></i>&nbsp;
+                        All Users
                     </a>
                 </li>
                 <li>
@@ -320,6 +326,44 @@
                                     </button>
                                 </div>
                             </div>
+
+                              <div class="tab-pane  fade show " id="user" role="tabpanel" aria-labelledby="contact-tab">            
+
+                            <div class="card" style="padding:40px;">
+                                <div class="top">
+                                    <li class="nav-item" style="list-style-type: none;">
+                                        <a class="nav-link ser-link" href="{{ route('cars') }}"><i class="fas fa-car"></i>&nbsp; Add Car  </a>
+                                    </li>
+                                </div>
+                                <br><br>
+                                <table class="table table-hover">
+                                    <tr class="text-info">
+                                        <th>ID</th>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>IsAdmin</th>
+                                       
+                                    </tr>
+                                    @foreach($users as $user)
+                                    <tr>
+                                        <td>{{$user["id"]}}</td>
+                                        <td>{{$user["name"]}}</td>
+                                        <td>{{$user["email"]}}</td>
+                                       
+                                       
+                                        <td>
+                                            <button class="text-info nothing" data-toggle="modal" data-target="#edit_bike">
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+                                            <button class="text-danger nothing" data-toggle="modal" data-target="#del_bike">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    @endforeach
+                                </table>
+                            </div>
+                        </div>
                         </div>
                     </div>
                 </div>

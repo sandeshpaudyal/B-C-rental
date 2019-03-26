@@ -93,6 +93,9 @@ class CarsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $cars = Share::find($id);
+     $cars->delete();
+
+     return redirect('/home')->with('success', 'Stock has been deleted Successfully');
     }
 }

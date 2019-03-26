@@ -4,6 +4,8 @@
 
 
 <div class="container">
+
+    This is a home page.
     <div class="row justify-content-center">
         <div class = "col-md-12 ml-auto mr-auto contentmain">
             <div class ="row">

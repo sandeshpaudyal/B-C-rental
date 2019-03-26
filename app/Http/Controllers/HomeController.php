@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\cars;
+use App\User;
 
 class HomeController extends Controller
 {
@@ -23,6 +24,13 @@ class HomeController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function index()
+    {
+        $cars = Cars::all();
+        $user = User::all();
+        return view('dashboard')->with('cars', $cars) ->with('users', $user);
+    }
+
+     public function dashboard()
     {
         $cars = Cars::all();
         return view('dashboard')->with('cars', $cars);
