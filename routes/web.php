@@ -21,4 +21,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/service', 'ServiceController@service')->name('service');
 
+// Route::resource('/cars', 'CarsController@create')->name('cars');
+
+
 

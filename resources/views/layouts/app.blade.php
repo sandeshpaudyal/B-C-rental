@@ -57,6 +57,9 @@
                         <li class="nav-item">
                                 <a class="nav-link ser-link" href="{{ route('service') }}"><i class="fas fa-wrench"></i>&nbsp; Service Centers </a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link ser-link" href="{{ route('cars') }}"><i class="fas fa-wrench"></i>&nbsp; add cars  </a>
+                            </li>
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
