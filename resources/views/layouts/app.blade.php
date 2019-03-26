@@ -55,7 +55,7 @@
                     <ul class="navbar-nav ml-auto">
 
                         <li class="nav-item">
-                                <a class="nav-link ser-link" href="{{ route('service') }}"><i class="fas fa-wrench"></i>&nbsp; Service Centers </a>
+                                <a class="nav-link ser-link" href="{{ route('service') }}">Post an article</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link ser-link" href="{{ route('cars') }}"><i class="fas fa-wrench"></i>&nbsp; add cars  </a>

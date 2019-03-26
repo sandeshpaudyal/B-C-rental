@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layouts.app')
 
 @section('content')
 <style>
@@ -20,7 +20,7 @@
         </ul>
       </div><br />
     @endif
-      <form method="post" action="{{ route('cars.store') }}">
+      <form method="post" action="/cars/store">
           <div class="form-group">
               @csrf
               <label for="name">Brand:</label>

@@ -6,11 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class cars extends Model
 {
-    protected $fillable = [
-    	'brand',
-        'model',
-        'type',
-        'color',
-        'price',
-  ];
+   protected $fillable = [
+   	"model",
+   	"brand",
+   	"type",
+   	"color",
+   	"price"
+   ];
 }

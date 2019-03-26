@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\cars;
 
 class HomeController extends Controller
 {
@@ -23,7 +24,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $cars = Cars::all();
+        echo "hello";
+        dd($cars);
+        return view('home')->with('cars', $cars)->with('test', 'success');
     }
 
    

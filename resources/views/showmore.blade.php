@@ -1,4 +1,3 @@
-
 @extends('layouts.app')
 @section('content')
 <div class="container">
@@ -28,50 +27,9 @@
                 Recently Added Bikes and Cars
             </h5>
             <div class="row">
-                @foreach($cars as $car)
-                    <div class="col-md-4">
-                        <div class="info">
-                            <img src="{{asset('/image/products/001.png')}}" class="infoimg" alt="">
-                            <div class="infotext">
-                                <span class="infoname">HYUNDAI PRO</span>
-                                <span class="float-right new">NEW</span><br><br>
-                                <table>
-                                    <tr>
-                                        <td>Brand:</td>
-                                        <td>{{$car["brand"]}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Model </td>
-                                        <td>{{$car["model"]}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Type:</td>
-                                        <td>{{$car["type"]}}</td>
-                                    </tr>
-                                     <tr>
-                                        <td>Color:</td>
-                                        <td>{{$car["color"]}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Price:</td>
-                                        <td>{{$car["price"]}}</td>
-                                    </tr>
-                                </table><br>
-                                <div class="text-center">
-                                    <button class="btn viewbtn">
-                                        VIEW MORE
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                @endforeach
-            </div><br>
-            <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-8">
                     <div class="info">
-                        <img src="{{asset('/image/products/004.png')}}" class="infoimg" alt="">
+                        <img src="{{asset('/image/products/001.png')}}" class="infoimg" alt="">
                         <div class="infotext">
                             <span class="infoname">HYUNDAI PRO</span>
                             <span class="float-right new">NEW</span><br><br>
@@ -101,71 +59,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="info">
-                        <img src="{{asset('/image/products/005.png')}}" class="infoimg" alt="">
-                        <div class="infotext">
-                            <span class="infoname">HYUNDAI PRO</span>
-                            <span class="float-right new">NEW</span><br><br>
-                            <table>
-                                <tr>
-                                    <td>Brand:</td>
-                                    <td>Hyundai</td>
-                                </tr>
-                                <tr>
-                                    <td>Model Number:</td>
-                                    <td>250-T</td>
-                                </tr>
-                                <tr>
-                                    <td>Type:</td>
-                                    <td>Hatchback</td>
-                                </tr>
-                                <tr>
-                                    <td>Made Year:</td>
-                                    <td>2015</td>
-                                </tr>
-                            </table><br>
-                            <div class="text-center">
-                                <button class="btn viewbtn">
-                                    VIEW MORE
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="info">
-                        <img src="{{asset('/image/products/006.png')}}" class="infoimg" alt="">
-                        <div class="infotext">
-                            <span class="infoname">HYUNDAI PRO</span>
-                            <span class="float-right new">NEW</span><br><br>
-                            <table>
-                                <tr>
-                                    <td>Brand:</td>
-                                    <td>Hyundai</td>
-                                </tr>
-                                <tr>
-                                    <td>Model Number:</td>
-                                    <td>250-T</td>
-                                </tr>
-                                <tr>
-                                    <td>Type:</td>
-                                    <td>Hatchback</td>
-                                </tr>
-                                <tr>
-                                    <td>Made Year:</td>
-                                    <td>2015</td>
-                                </tr>
-                            </table><br>
-                            <div class="text-center">
-                                <button class="btn viewbtn">
-                                    VIEW MORE
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div><br>
+                
+            </div>
+         
+            </div>
+        </div>
             <div class="row">
                 <div class="col-md-4">
                     <div class="info">

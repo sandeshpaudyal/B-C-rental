@@ -19,7 +19,7 @@ class Cars extends Migration
             $table->string('model');
             $table->string('type');
             $table->string('color');
-            $table->string('made_year');
+            $table->string('price');
             $table->rememberToken();
             $table->timestamps();
         });

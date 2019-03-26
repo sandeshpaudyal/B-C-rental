@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Cars;
 
 class CarsController extends Controller
 {
@@ -41,9 +42,10 @@ class CarsController extends Controller
       $cars = new Cars([
         'brand' => $request->get('brand'),
         'model'=> $request->get('model'),
-        'type'=> $request->get('type')
+        'type'=> $request->get('type'),
         'color'=> $request->get('color'),
         'price'=> $request->get('price')
+        
       ]);
       $cars->save();
       return redirect('/home')->with('success', 'cars has been added');

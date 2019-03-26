@@ -11,8 +11,12 @@
 |
 */
 
+use App\cars;
+
 Route::get('/', function () {
-    return view('welcome');
+
+    $cars = Cars::all();
+    return view('welcome')->with('cars', $cars)->with('test', 'success');
 });
 
 Auth::routes();
@@ -21,7 +25,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/service', 'ServiceController@service')->name('service');
 
-// Route::resource('/cars', 'CarsController@create')->name('cars');
+ Route::get('/cars', 'CarsController@index')->name('cars');
 
-
-
+Route::post('/cars/store/', 'CarsController@store')->name('cars.store');
