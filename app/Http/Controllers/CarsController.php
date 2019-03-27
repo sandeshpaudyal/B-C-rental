@@ -54,7 +54,7 @@ class CarsController extends Controller
         // $image =  $request->file('select_file');
         // $new_image = rand() . '.' . $image->getClientOriginalExtension();
         // $image->move(public_path("images"), $new_name);
-        
+
       $cars = new Cars([
         'brand' => $request->get('brand'),
         'model'=> $request->get('model'),
@@ -86,7 +86,8 @@ class CarsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $cars = Cars::find($id);
+        return view('cars.edit', compact('cars'));
     }
 
     /**
@@ -98,7 +99,23 @@ class CarsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+         $request->validate([
+        'model'=>'required',
+        'brand'=> 'required',
+        'type' => 'required',
+         'color' => 'required',
+          'price' => 'required'
+      ]);
+
+      $cars = Share::find($id);
+      $cars->model = $request->get('model');
+      $cars->brand = $request->get('brand');
+      $cars->type = $request->get('type');
+      $cars->color = $request->get('color');
+      $cars->price = $request->get('price');
+      $cars->save();
+
+      return redirect('/cars')->with('success', 'Stock has been updated');
     }
 
     /**
@@ -109,10 +126,15 @@ class CarsController extends Controller
      */
     public function destroy($id)
     {
-        $cars = Share::find($id);
-     $cars->delete();
+        $cars = cars::find($id);       
+          $res = $cars->delete();
+         if($res){
+            return redirect('/home')->with('success', 'Deleted Successfully');
+        }else{
+             return redirect('/home')->with('error', 'Failed to delete');
+        }
 
-     return redirect('/home')->with('success', 'Stock has been deleted Successfully');
+    
     }
 
 }

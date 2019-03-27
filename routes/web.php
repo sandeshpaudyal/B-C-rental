@@ -32,6 +32,7 @@ Route::post('/cars/store/', 'CarsController@store')->name('cars.store');
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 Route::get('/showmore', 'ShowmoreController@index')->name('showmore');
+
 // for image upload
 
 Route::get('image-upload', 'ImageUploadController@imageUpload')->name('image.upload');

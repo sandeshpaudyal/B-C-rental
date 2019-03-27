@@ -19,6 +19,17 @@
 
     <!-- Scrollbar Custom CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myTable tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>
     <style>
     @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
 
@@ -171,6 +182,8 @@
 
     </style>
 
+
+
 </head>
 <body>
     <div class = "row">
@@ -235,7 +248,11 @@
                                     </li>
                                 </div>
                                 <br><br>
-                                <table class="table table-hover">
+                                <div class = " col-md-5 form-group ml-auto">
+                     <input class="form-control" id="myInput" type="text" placeholder="Search..">
+                 </div>
+                                <table class="table table-hover" data-ride="datatables" id="users-table">
+                                    <thead>
                                     <tr class="text-info">
                                         <th>ID</th>
                                         <th>Brand</th>
@@ -245,9 +262,13 @@
                                         <th>Price</th>
                                         <th>Actions</th>
                                     </tr>
-                                    @foreach($cars as $car)
+                                </thead>
+
+                                   
+                                     <tbody id = "myTable">
+                                         @foreach($cars as $car)
                                     <tr>
-                                        <td>001</td>
+                                        <td>{{$car["id"]}}</td>
                                         <td>{{$car["brand"]}}</td>
                                         <td>{{$car["model"]}}</td>
                                         <td>{{$car["type"]}}</td>
@@ -257,12 +278,12 @@
                                             <button class="text-info nothing" data-toggle="modal" data-target="#edit_bike">
                                                 <i class="fas fa-edit"></i>
                                             </button>
-                                            <button class="text-danger nothing" data-toggle="modal" data-target="#del_bike">
-                                                <i class="fas fa-trash"></i>
-                                            </button>
+                                             <a href="{{ url('/delete')}}/{{$car->id}}" class="btn btn-sm btn-icon btn-danger"><i class="fa fa-trash"></i></a>
                                         </td>
                                     </tr>
+
                                     @endforeach
+                                    </tbody>
                                 </table>
                             </div>
                         </div>
@@ -332,7 +353,7 @@
                             <div class="card" style="padding:40px;">
                                 <div class="top">
                                     <li class="nav-item" style="list-style-type: none;">
-                                        <a class="nav-link ser-link" href="{{ route('cars') }}"><i class="fas fa-car"></i>&nbsp; Add Car  </a>
+                                        <a class="nav-link ser-link" href="{{ route('register') }}"><i class="fas fa-user"></i>&nbsp; Add user </a>
                                     </li>
                                 </div>
                                 <br><br>
@@ -349,12 +370,11 @@
                                         <td>{{$user["id"]}}</td>
                                         <td>{{$user["name"]}}</td>
                                         <td>{{$user["email"]}}</td>
+                                        <td>{{$user["isadmin"]}}</td>
                                        
                                        
                                         <td>
-                                            <button class="text-info nothing" data-toggle="modal" data-target="#edit_bike">
-                                                <i class="fas fa-edit"></i>
-                                            </button>
+                                           <a href="{{ url('/edit')}}/{{$user->id}}" class="btn btn-sm btn-icon btn-danger"><i class="fa fa-edit"></i></a>
                                             <button class="text-danger nothing" data-toggle="modal" data-target="#del_bike">
                                                 <i class="fas fa-trash"></i>
                                             </button>
@@ -372,9 +392,10 @@
         
 
 
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        
     </body>
     </html>

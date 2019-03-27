@@ -28,7 +28,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+   // protected $redirectTo = '/home';
 
     /**
      * Create a new controller instance.
@@ -69,5 +69,37 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+    }
+
+     public function edit($id)
+    {
+        $data = User::find($id);
+        return view('data.edit', compact('data'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+         $request->validate([
+        'model'=>'required',
+        'brand'=> 'required',
+        'type' => 'required',
+         'color' => 'required',
+          'price' => 'required'
+      ]);
+
+      $data = User::find($id);
+      $data->name = $request->get('name');
+      $data->email = $request->get('email');
+      $data->isadmin = $request->get('isadmin');
+      $data->save();
+
+      return redirect('/home')->with('success', 'data has been updated');
     }
 }
