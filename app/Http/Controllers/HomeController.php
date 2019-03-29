@@ -27,13 +27,14 @@ class HomeController extends Controller
     {
         $cars = Cars::all();
         $user = User::all();
-        return view('dashboard')->with('cars', $cars) ->with('users', $user);
+        return view('home')->with('cars', $cars) ->with('users', $user);
     }
 
      public function dashboard()
     {
         $cars = Cars::all();
-        return view('dashboard')->with('cars', $cars);
+         $user = User::all();
+        return view('dashboard')->with('cars', $cars)->with('users', $user);
     }
 
    

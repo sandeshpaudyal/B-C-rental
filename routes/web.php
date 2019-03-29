@@ -21,15 +21,23 @@ Route::get('/', function () {
 
 Auth::routes();
 
+
+// for admin
+
+
+
+Route::group([ 'middleware' => ['role:Admin']], function() {
+   	Route::get('/dashboard', 'HomeController@dashboard')->name('dashboard');
+	Route::post('/cars/store/', 'CarsController@store')->name('cars.store');
+	Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
+});
+
+//for home
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/service', 'ServiceController@service')->name('service');
 
 Route::get('/cars', 'CarsController@index')->name('cars');
-
-Route::post('/cars/store/', 'CarsController@store')->name('cars.store');
-
-Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 Route::get('/showmore', 'ShowmoreController@index')->name('showmore');
 
