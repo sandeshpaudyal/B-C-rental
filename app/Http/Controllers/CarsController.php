@@ -4,20 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Cars;
+use Session;
 
 class CarsController extends Controller
 {
-    function upload(Request $request)
-    {
-        $this->validate($request, [
-            'select_file' => 
-            'required| image| mimes:jpeg,png,jpg|max:2048']);
-        $image =  $request->file('select_file');
-        $new_image = rand() . '.' . $image->getClientOriginalExtension();
-        $image->move(public_path("images"), $new_name);
-        return back()->with('success', 'image upload success')->with('path', $new_name);
-    }
-   
 
 
     /**
@@ -48,23 +38,53 @@ class CarsController extends Controller
      */
     public function store(Request $request)
     {
-        // $this->validate($request, [
-        //     'select_file' => 
-        //     'required| image| mimes:jpeg,png,jpg|max:2048']);
-        // $image =  $request->file('select_file');
-        // $new_image = rand() . '.' . $image->getClientOriginalExtension();
-        // $image->move(public_path("images"), $new_name);
 
-      $cars = new Cars([
-        'brand' => $request->get('brand'),
-        'model'=> $request->get('model'),
-        'type'=> $request->get('type'),
-        'color'=> $request->get('color'),
-        'price'=> $request->get('price')
-        
-      ]);
-      $cars->save();
-      return redirect('/home')->with('success', 'cars has been added');
+        try {
+//dd($request->all());
+            //Result Image
+            $imageFile = $request->file('car_image');
+//            dd($imageFile);
+            $imageFilenameWithExt = $imageFile->getClientOriginalName();
+            $imageFilename = pathinfo($imageFilenameWithExt, PATHINFO_FILENAME);
+            $extension = $imageFile->getClientOriginalExtension();
+            $imageFileNameToStore = $imageFilename . '_' . time() . '.' . $extension;
+
+            $imagedata = [
+                'image' => $imageFilename,
+                'path' => $imageFile->storeAs('image', $imageFileNameToStore, 'public'),
+                'meta' => 'Car_Image',
+            ];
+//            dd($imagedata);
+            $data = [
+                'brand' => $request->get('brand'),
+                'model'=> $request->get('model'),
+                'type'=> $request->get('type'),
+                'color'=> $request->get('color'),
+                'price'=> $request->get('price'),
+            ];
+
+//            dd($data);
+            $d =cars::create($data);
+            $d->image()->create($imagedata);
+            Session::flash('success', 'Car has been added');
+            return redirect('/home');
+
+        } catch (\Exception $e) {
+            Session::flash('fail', 'Result is not created');
+            return redirect('/home');
+        }
+        dd($request->all());
+
+//      $cars = new Cars([
+//        'brand' => $request->get('brand'),
+//        'model'=> $request->get('model'),
+//        'type'=> $request->get('type'),
+//        'color'=> $request->get('color'),
+//        'price'=> $request->get('price')
+//
+//      ]);
+//      $cars->save();
+//      return redirect('/home')->with('success', 'cars has been added');
     }
 
     /**

@@ -25,7 +25,7 @@
           </ul>
         </div><br />
       @endif
-        <form method="post" action="/cars/store">
+        <form method="post" action="/cars/store"  enctype="multipart/form-data">
             <div class="form-group">
                 @csrf
                 <label for="name">Brand:</label>
@@ -50,7 +50,7 @@
 
              <div class="form-group">
                 <label for="quantity">Image:</label>
-                <input type="file" name = "select_file" />
+                <input type="file" name="car_image" />
             </div>
             <button type="submit" class="btn btn-success" style="border-radius:100px;padding:5px 15px;">
               <i class="fas fa-save"></i>&nbsp;

@@ -256,6 +256,7 @@ $(document).ready(function(){
                                     <tr class="text-info">
                                         <th>ID</th>
                                         <th>Brand</th>
+                                        <th>Image</th>
                                         <th>Model</th>
                                         <th>Type</th>
                                         <th>Color</th>
@@ -270,6 +271,11 @@ $(document).ready(function(){
                                     <tr>
                                         <td>{{$car["id"]}}</td>
                                         <td>{{$car["brand"]}}</td>
+                                        <td>
+                                            @if($image = $car->image()->where('meta','Car_Image')->first())
+                                                <img src="{{asset($image->url) }}" class="" height="auto" width="50px">
+                                            @endif
+                                        </td>
                                         <td>{{$car["model"]}}</td>
                                         <td>{{$car["type"]}}</td>
                                         <td>{{$car["color"]}}</td>

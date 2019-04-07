@@ -13,4 +13,10 @@ class Cars extends Model
    	"color",
    	"price"
    ];
+
+    public function image()
+    {
+        return $this->morphMany(Image::class, 'imageable');
+    }
+
 }
